@@ -1,0 +1,19 @@
+# Dependency directories
+node_modules/
+
+# Private ENV vars
+.envrc
+
+# Tooling logs
+*.log
+
+# Our temprorary files (e.g. ad-hoc scripts)
+*.temp.*
+*.temp
+
+# IDE
+.idea
+.vscode
+
+# Built js libs
+/*/lib

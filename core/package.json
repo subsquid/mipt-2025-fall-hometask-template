@@ -1,0 +1,39 @@
+{
+  "name": "core",
+  "private": true,
+  "description": "ETL framework",
+  "license": "GPL-3.0-or-later",
+  "scripts": {
+    "build": "rm -rf lib && tsc"
+  },
+  "exports": {
+    "./clickhouse-processor": {
+      "types": "./lib/clickhouse-processor.d.ts",
+      "require": "./lib/clickhouse-processor.js"
+    },
+    "./common": {
+      "types": "./lib/common.d.ts",
+      "require": "./lib/common.js"
+    },
+    "./portal/data": {
+      "types": "./lib/portal/data.d.ts"
+    },
+    "./portal/data-source": {
+      "types": "./lib/portal/data-source.d.ts",
+      "require": "./lib/portal/data-source.js"
+    },
+    "./portal/query": {
+      "types": "./lib/portal/query.d.ts"
+    }
+  },
+  "dependencies": {
+    "@subsquid/http-client": "^1.8.0",
+    "@subsquid/logger": "^1.4.0",
+    "@subsquid/util-internal-counters": "^1.3.2",
+    "@subsquid/util-internal-validation": "^0.8.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "typescript": "5.9.3"
+  }
+}

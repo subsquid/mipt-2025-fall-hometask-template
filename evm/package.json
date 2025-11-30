@@ -1,0 +1,19 @@
+{
+  "name": "evm",
+  "private": true,
+  "description": "EVM template",
+  "license": "GPL-3.0-or-later",
+  "scripts": {
+    "build": "rm -rf lib && tsc"
+  },
+  "dependencies": {
+    "@subsquid/evm-abi": "^0.3.1",
+    "@subsquid/evm-codec": "^0.3.0",
+    "core": "workspace:*"
+  },
+  "devDependencies": {
+    "@subsquid/evm-typegen": "^4.3.0",
+    "@types/node": "^24.10.1",
+    "typescript": "5.9.3"
+  }
+}

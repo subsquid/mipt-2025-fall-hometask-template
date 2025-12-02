@@ -1,0 +1,16 @@
+{
+  "name": "solution",
+  "private": true,
+  "description": "Home task solution",
+  "license": "GPL-3.0-or-later",
+  "scripts": {
+    "build": "rm -rf lib && tsc"
+  },
+  "dependencies": {
+    "core": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^24.10.1",
+    "typescript": "5.9.3"
+  }
+}

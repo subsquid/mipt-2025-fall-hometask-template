@@ -34,4 +34,5 @@ node lib/main.js
 
 ## Known caveats
 
-* Data processing may sometimes hang indefinitely if there are Subsquid Portal connection issues
+* Data processing may sometimes hang indefinitely if there are Subsquid Portal connection issues.
+* ETL framework assumes some consistency guarantees from ClickHouse database that might not hold for all ClickHouse setups by default. Although we have not analyzed the matter carefully, we believe it is possible to get required guarantees from all kinds of ClickHouse instances.

@@ -10,10 +10,27 @@ import {
     object,
     oneOf,
     option,
-    STRING
+    STRING,
+    withDefault
 } from '@subsquid/util-internal-validation'
 import {project} from '../util'
 import type {SolanaFieldSelection} from './fields'
+
+
+export function patchSolanaQueryFields(fields: SolanaFieldSelection): SolanaFieldSelection {
+    fields = {...fields}
+
+    let {number, hash, parentNumber, parentHash, ...block} = fields.block as any ?? {}
+    fields.block = {
+        number: true,
+        hash: true,
+        parentNumber: true,
+        parentHash: true,
+        ...block
+    } as any
+
+    return fields
+}
 
 
 export function getSolanaBlockSchema(fields: SolanaFieldSelection) {
@@ -36,8 +53,8 @@ function getBlockHeaderSchema(fields: SolanaFieldSelection) {
         parentNumber: NAT,
         parentHash: B58,
         ...project(fields.block, {
-            height: NAT,
-            timestamp: NAT
+            height: withDefault(0, NAT),
+            timestamp: withDefault(0, NAT)
         })
     })
 }

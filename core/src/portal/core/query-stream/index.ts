@@ -3,7 +3,7 @@ import type {BlockBase} from '../../../common'
 import type {PortalApi} from '../portal-api'
 import type {AnyQuery, GetQueryBlock} from '../query'
 import {getEvmBlockSchema, patchEvmQueryFields} from '../query/evm/schema'
-import {getSolanaBlockSchema} from '../query/solana/schema'
+import {getSolanaBlockSchema, patchSolanaQueryFields} from '../query/solana/schema'
 import {createQueryStream as createStream, DataBatch, StreamOptions} from './internal'
 
 
@@ -31,6 +31,8 @@ export function createQueryStream(
             break
         case 'solana':
             schema = getSolanaBlockSchema(query.fields)
+            query = {...query}
+            query.fields = patchSolanaQueryFields(query.fields ?? {})
             break
         default:
             throw new Error(`unsupported query type - ${(query as any).type}`)

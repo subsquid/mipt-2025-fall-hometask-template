@@ -28,7 +28,7 @@ pnpm -r build
 
 # Run one of the examples
 cd evm
-make up && sleep 2 && make db
+make up && sleep 3 && make db
 node lib/main.js
 ```
 

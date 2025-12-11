@@ -3,6 +3,7 @@ export type * from './query/evm/fields'
 export type * from './query/solana/fields'
 
 
+export type GetBlockHeader<B> = B extends {header: (infer T)} ? T : never
 export type GetTransaction<B> = B extends {transactions?: (infer T)[]} ? T : never
 export type GetLog<B> = B extends {logs?: (infer T)[]} ? T : never
 export type GetTrace<B> = B extends {traces?: (infer T)[]} ? T : never

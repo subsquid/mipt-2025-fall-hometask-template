@@ -6,6 +6,8 @@ Develop an ETL pipeline that can query TVL history data points from a ClickHouse
 
 Note that this value is different from *virtual liquidity* (as we are interested in the total amount of tokens across the entire price range) and does **not** include fees owed to the pool administrators or liquidity providers.
 
+**You can assume all swaps are of the `exact input` kind**.
+
 ## Details
 
 The ETL pipeline should maintain a table (or an equivalent view) with the following structure:
